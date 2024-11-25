@@ -32,7 +32,10 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "main.h"
+#include "string.h"
+#include "stdio.h"
+#include "i2c_lcd.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -61,6 +64,10 @@ void Error_Handler(void);
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define B1_EXTI_IRQn EXTI15_10_IRQn
+#define A0_Pin GPIO_PIN_0
+#define A0_GPIO_Port GPIOA
+#define A1_Pin GPIO_PIN_1
+#define A1_GPIO_Port GPIOA
 #define USART_TX_Pin GPIO_PIN_2
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
@@ -79,10 +86,12 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
-#define SWO_Pin GPIO_PIN_3
-#define SWO_GPIO_Port GPIOB
+#define D3_Pin GPIO_PIN_3
+#define D3_GPIO_Port GPIOB
 #define D5_Pin GPIO_PIN_4
 #define D5_GPIO_Port GPIOB
+#define D4_Pin GPIO_PIN_5
+#define D4_GPIO_Port GPIOB
 #define D10_Pin GPIO_PIN_6
 #define D10_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
