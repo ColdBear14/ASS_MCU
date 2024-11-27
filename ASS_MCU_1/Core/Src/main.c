@@ -108,6 +108,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  lcd_goto_XY(0, 0);
+	  lcd_send_string("Hello_World");
+	  HAL_Delay(2000);
+	  lcd_goto_XY(1, 0);
+	  lcd_send_string("Hello_Hy");
+	  HAL_Delay(2000);
+
 
   }
   /* USER CODE END 3 */
