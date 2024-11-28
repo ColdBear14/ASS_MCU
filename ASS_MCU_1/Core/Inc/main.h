@@ -36,6 +36,12 @@ extern "C" {
 #include "string.h"
 #include "stdio.h"
 #include "i2c_lcd.h"
+#include "button.h"
+#include "software_timer.h"
+#include "control_traffic.h"
+#include "global.h"
+#include "fsm_automatic.h"
+#include "fsm_setting.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

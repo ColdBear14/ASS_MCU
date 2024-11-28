@@ -1,0 +1,35 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 28, 2024
+ *      Author: Hy
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+
+
+#define MODE0 0
+#define MODE1 1
+#define MODE2 2
+#define MODE3 3
+#define MODE4 4
+
+#define INIT 11
+#define AUTO_RED 12
+#define AUTO_YELLOW 13
+#define AUTO_GREEN 14
+
+#define MAN_RED 22
+#define MAN_YELLOW 23
+#define MAN_GREEN 24
+
+
+
+extern int status_A;
+extern int status_B;
+extern int status_mode;
+
+#endif /* INC_GLOBAL_H_ */

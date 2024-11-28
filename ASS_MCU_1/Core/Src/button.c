@@ -1,0 +1,76 @@
+/*
+ * button.c
+ *
+ *  Created on: Nov 28, 2024
+ *      Author: Hy
+ */
+
+#include "button.h"
+
+int KeyReg0[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg1[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg2[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+
+int KeyReg3[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int TimerForKeyPress[5] = {300,300,300,300,300};
+
+int button_flag[5];
+int button_LongPress_flag[5];
+
+int IsButtonPress(int index) {
+	if (button_flag[index] == 1) {
+		button_flag[index] = 0;
+		return 1;
+	}
+	return 0;
+}
+
+
+void subKeyProcess(int index) {
+	button_flag[index] = 1;
+}
+
+int getIndex(int index) {
+	switch(index){
+		case 0:
+			return HAL_GPIO_ReadPin(A0_GPIO_Port, A0_Pin);
+			break;
+		case 1:
+			return HAL_GPIO_ReadPin(A1_GPIO_Port, A1_Pin);
+			break;
+		case 2:
+			return HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+			break;
+		default:
+			break;
+	}
+	return 0;
+}
+
+void getKeyInput() {
+	for (int i = 0; i < 5; i++) {
+		KeyReg0[i] = KeyReg1[i];
+		KeyReg1[i] = KeyReg2[i];
+
+		KeyReg2[i] = getIndex(i) ;
+
+		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
+			if (KeyReg3[i] != KeyReg2[i]) {
+				KeyReg3[i] = KeyReg2[i];
+				if (KeyReg2[i] == PRESS_STATE) {
+					//todo
+					subKeyProcess(i);
+					HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+					TimerForKeyPress[i] = 300;
+
+				}
+			} else {
+				TimerForKeyPress[i]--;
+				if (TimerForKeyPress[i] == 0) {
+					//todo
+					KeyReg3[i] = NORMAL_STATE;
+				}
+			}
+		}
+	}
+}
