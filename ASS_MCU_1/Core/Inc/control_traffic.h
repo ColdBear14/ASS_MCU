@@ -19,7 +19,6 @@ int status_GREEN_B;
 int status_YELLOW_B;
 
 extern void displayTraffic();
-void status_LED_A();
-void status_LED_B();
+void statusTraffic();
 
 #endif /* INC_CONTROL_TRAFFIC_H_ */

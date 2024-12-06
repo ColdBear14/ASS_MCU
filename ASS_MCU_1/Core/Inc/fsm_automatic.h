@@ -8,18 +8,11 @@
 #ifndef INC_FSM_AUTOMATIC_H_
 #define INC_FSM_AUTOMATIC_H_
 
-#include "global.h"
+#include "main.h"
 
+int countDownLEDA;
+int countDownLEDB;
 
-extern int RED_Timer ;
-extern int YELLOW_Timer ;
-extern int GREEN_Timer ;
-
-extern void status_LEDA();
-extern void status_LEDB();
-
-extern void fsm_automatic_run_A();
-extern void fsm_automatic_run_B();
-extern void fsm_automatic_run();
+void fsm_automatic()
 
 #endif /* INC_FSM_AUTOMATIC_H_ */

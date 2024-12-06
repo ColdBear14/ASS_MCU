@@ -10,26 +10,24 @@
 
 #include "main.h"
 
-
-#define MODE0 0
+#define INIT 0
 #define MODE1 1
 #define MODE2 2
 #define MODE3 3
 #define MODE4 4
 
-#define INIT 11
-#define AUTO_RED 12
-#define AUTO_YELLOW 13
-#define AUTO_GREEN 14
 
-#define MAN_RED 22
-#define MAN_YELLOW 23
-#define MAN_GREEN 24
+#define RED_GREEN 11
+#define RED_YELLOW 12
+#define GREEN_RED 13
+#define YELLOW_RED 14
 
+#define MAN_RED_GREEN 21
+#define MAN_RED_YELLOW 22
+#define MAN_GREEN_RED 23
+#define MAN_YELLOW_RED 24
 
-
-extern int status_A;
-extern int status_B;
+int statusLED;
 extern int status_mode;
 
 #endif /* INC_GLOBAL_H_ */

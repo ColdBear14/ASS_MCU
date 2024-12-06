@@ -12,30 +12,21 @@ int countTemp = 0 ;
 int countDownA;
 int countDownB;
 
-int count_RED = 5 ;
-int count_GREEN = 3 ;
-int count_YELLOW = 2 ;
+int count_RED = 5;
+int count_GREEN = 3;
+int count_YELLOW = 2;
 
-void countPressButton1(){
-	if(IsButtonPress(1) == 1){
-		status_mode++;
-	}
-	if(status_mode == MODE4 + 1){
-		status_mode = MODE0;
-	}
-}
 
 void fsm_mode(){
-	fsm_automatic_run();
-	countPressButton1();
-
 	switch(status_mode){
-	case MODE0:
+	case INIT:
 		status_mode = MODE1;
-		status_A = INIT;
-		status_B = INIT;
+		statusLED = RED_GREEN;
 		countDownA=count_RED;
 		countDownB=count_GREEN;
+
+		countDownLEDA=count_RED;
+		countDownLEDB=count_GREEN;
 		break;
 	case MODE1:
 		if(IsButtonPress(1) == 1){
@@ -43,55 +34,64 @@ void fsm_mode(){
 		}
 		break;
 	case MODE2:
-		status_A = MAN_RED;
-		status_B = MAN_RED;
+		statusLED = MODE2;
 		if(IsButtonPress(1) == 1){
 			status_mode = MODE3;
 		}
 		if(IsButtonPress(2) == 1){
 			// add value
-			countTemp+=2;
+			countTemp+=1;
+		}
+		if(IsButtonLongPress(2) == 1){
+			// subtract value
+			countTemp-=1;
 		}
 		if(IsButtonPress(3) == 1){
 			//set value
-			RED_Timer = RED_Timer + countTemp*1000;
 			count_RED += countTemp;
 			countTemp=0;
 		}
+		displayTraffic();
 		break;
 	case MODE3:
-		status_A = MAN_YELLOW;
-		status_B = MAN_YELLOW;
+		statusLED = MODE3;
 		if(IsButtonPress(1) == 1){
 			status_mode = MODE4;
 		}
 		if(IsButtonPress(2) == 1){
 			// add value
-			countTemp+=2;
+			countTemp+=1;
+		}
+		if(IsButtonLongPress(2) == 1){
+			// subtract value
+			countTemp-=1;
 		}
 		if(IsButtonPress(3) == 1){
 			//set value
-			YELLOW_Timer = YELLOW_Timer + countTemp*1000;
 			count_YELLOW += countTemp;
 			countTemp=0;
 		}
+		displayTraffic();
 		break;
 	case MODE4:
-		status_A = MAN_GREEN;
-		status_B = MAN_GREEN;
+		statusLED = MODE4;
 		if(IsButtonPress(1) == 1){
-			status_mode = MODE0;
+			status_mode = MODE1;
 		}
 		if(IsButtonPress(2) == 1){
 			// add value
-			countTemp+=2;
+			countTemp+=1;
+		}
+		if(IsButtonLongPress(2) == 1){
+			// subtract value
+			countTemp-=1;
 		}
 		if(IsButtonPress(3) == 1){
 			//set value
-			GREEN_Timer = GREEN_Timer + countTemp*1000;
 			count_GREEN += countTemp;
 			countTemp=0;
 		}
+		displayTraffic();
 		break;
 	default:
 		break;

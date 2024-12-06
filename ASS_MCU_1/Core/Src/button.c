@@ -7,19 +7,27 @@
 
 #include "button.h"
 
-int KeyReg0[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int KeyReg1[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int KeyReg2[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg0[3] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg1[3] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg2[3] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
 
-int KeyReg3[5] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int TimerForKeyPress[5] = {300,300,300,300,300};
+int KeyReg3[3] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int TimerForKeyPress[3] = {300,300,300};
 
-int button_flag[5];
-int button_LongPress_flag[5];
+int button_flag[3];
+int button_long_flag[3];
 
 int IsButtonPress(int index) {
 	if (button_flag[index] == 1) {
 		button_flag[index] = 0;
+		return 1;
+	}
+	return 0;
+}
+
+int IsButtonLongPress(int index) {
+	if (button_long_flag[index] == 1) {
+		button_long_flag[index] = 0;
 		return 1;
 	}
 	return 0;
@@ -48,13 +56,14 @@ int getIndex(int index) {
 }
 
 void getKeyInput() {
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 3; i++) {
 		KeyReg0[i] = KeyReg1[i];
 		KeyReg1[i] = KeyReg2[i];
 
 		KeyReg2[i] = getIndex(i) ;
 
 		if ((KeyReg0[i] == KeyReg1[i]) && (KeyReg1[i] == KeyReg2[i])) {
+			//case short pressed
 			if (KeyReg3[i] != KeyReg2[i]) {
 				KeyReg3[i] = KeyReg2[i];
 				if (KeyReg2[i] == PRESS_STATE) {
@@ -64,10 +73,12 @@ void getKeyInput() {
 					TimerForKeyPress[i] = 300;
 
 				}
-			} else {
+			} else { // case long pressed
 				TimerForKeyPress[i]--;
 				if (TimerForKeyPress[i] == 0) {
 					//todo
+					button_long_flag[i] = 1;
+					TimerForKeyPress[i] = 300;
 					KeyReg3[i] = NORMAL_STATE;
 				}
 			}

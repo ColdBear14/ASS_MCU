@@ -12,7 +12,10 @@
 
 int countTemp;
 
-void countPressButton1();
-extern void fsm_mode();
+int count_RED;
+int count_GREEN;
+int count_YELLOW;
+
+void fsm_mode();
 
 #endif /* INC_FSM_SETTING_H_ */

@@ -15,7 +15,6 @@ int status_RED_B = 0;
 int status_GREEN_B = 1;
 int status_YELLOW_B = 0;
 
-
 void displayTraffic() {
 	//group a
 	if (status_RED_A == 1) {
@@ -44,76 +43,113 @@ void displayTraffic() {
 		HAL_GPIO_WritePin(D8_GPIO_Port, D8_Pin, RESET);
 	}
 }
-void status_LED_A() {
-	switch (status_A) {
-	case AUTO_RED:
-		status_RED_A = 1;
-		status_GREEN_A = 0;
-		status_YELLOW_A = 0;
-		break;
-	case MAN_RED:
-		status_RED_A = 1;
-		status_GREEN_A = 0;
-		status_YELLOW_A = 0;
-		break;
-	case AUTO_GREEN:
-		status_RED_A = 0;
-		status_GREEN_A = 1;
-		status_YELLOW_A = 0;
-		break;
-	case MAN_GREEN:
-		status_RED_A = 0;
-		status_GREEN_A = 1;
-		status_YELLOW_A = 0;
-		break;
-	case AUTO_YELLOW:
-		status_RED_A = 0;
-		status_GREEN_A = 0;
-		status_YELLOW_A = 1;
-		break;
-	case MAN_YELLOW:
-		status_RED_A = 0;
-		status_GREEN_A = 0;
-		status_YELLOW_A = 1;
-		break;
-	default:
-		break;
-	}
-}
 
-void status_LED_B(){
-	switch (status_B) {
-	case AUTO_RED:
+void statusTraffic() {
+	switch (statusLED) {
+	// SETTING
+	case MODE2:
+		status_RED_A = 1;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 0;
+
 		status_RED_B = 1;
 		status_GREEN_B = 0;
 		status_YELLOW_B = 0;
 		break;
-	case AUTO_GREEN:
-		status_RED_B = 0;
-		status_GREEN_B = 1;
-		status_YELLOW_B = 0;
-		break;
-	case AUTO_YELLOW:
+	case MODE3:
+		status_RED_A = 0;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 1;
+
 		status_RED_B = 0;
 		status_GREEN_B = 0;
 		status_YELLOW_B = 1;
 		break;
-	case MAN_RED:
+	case MODE4:
+		status_RED_A = 0;
+		status_GREEN_A = 1;
+		status_YELLOW_A = 0;
+
+		status_RED_B = 0;
+		status_GREEN_B = 1;
+		status_YELLOW_B = 0;
+		break;
+		//AUTOMATIC
+	case RED_GREEN:
+		status_RED_A = 1;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 0;
+
+		status_RED_B = 0;
+		status_GREEN_B = 1;
+		status_YELLOW_B = 0;
+		break;
+	case RED_YELLOW:
+		status_RED_A = 1;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 0;
+
+		status_RED_B = 0;
+		status_GREEN_B = 0;
+		status_YELLOW_B = 1;
+		break;
+	case GREEN_RED:
+		status_RED_A = 0;
+		status_GREEN_A = 1;
+		status_YELLOW_A = 0;
+
 		status_RED_B = 1;
 		status_GREEN_B = 0;
 		status_YELLOW_B = 0;
 		break;
-	case MAN_GREEN:
+	case YELLOW_RED:
+		status_RED_A = 0;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 1;
+
+		status_RED_B = 1;
+		status_GREEN_B = 0;
+		status_YELLOW_B = 0;
+		break;
+		//MANUAL
+	case MAN_RED_GREEN:
+		status_RED_A = 1;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 0;
+
 		status_RED_B = 0;
 		status_GREEN_B = 1;
 		status_YELLOW_B = 0;
 		break;
-	case MAN_YELLOW:
+	case MAN_RED_YELLOW:
+		status_RED_A = 1;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 0;
+
 		status_RED_B = 0;
 		status_GREEN_B = 0;
 		status_YELLOW_B = 1;
+		break;
+	case MAN_GREEN_RED:
+		status_RED_A = 0;
+		status_GREEN_A = 1;
+		status_YELLOW_A = 0;
+
+		status_RED_B = 1;
+		status_GREEN_B = 0;
+		status_YELLOW_B = 0;
+		break;
+	case MAN_YELLOW_RED:
+		status_RED_A = 0;
+		status_GREEN_A = 0;
+		status_YELLOW_A = 1;
+
+		status_RED_B = 1;
+		status_GREEN_B = 0;
+		status_YELLOW_B = 0;
 		break;
 	default:
 		break;
 	}
+
 }

@@ -14,13 +14,15 @@
 #define NORMAL_STATE GPIO_PIN_SET
 #define PRESS_STATE GPIO_PIN_RESET
 
-extern int button_flag[5];
+int button_flag[3];
+int button_long_flag[3];
 
-extern int IsButtonPress(int index);
-extern void subKeyProcess(int index);
+int IsButtonPress(int index);
+int IsButtonLongPress(int index);
+void subKeyProcess(int index);
 int getIndex(int index);
 
-extern void getKeyInput();
+void getKeyInput();
 
 
 #endif /* INC_BUTTON_H_ */
