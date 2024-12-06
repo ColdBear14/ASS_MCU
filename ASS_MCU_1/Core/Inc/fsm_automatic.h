@@ -13,6 +13,6 @@
 int countDownLEDA;
 int countDownLEDB;
 
-void fsm_automatic()
+void fsm_automatic();
 
 #endif /* INC_FSM_AUTOMATIC_H_ */
