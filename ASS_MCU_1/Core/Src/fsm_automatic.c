@@ -11,7 +11,6 @@ int countDownLEDA;
 int countDownLEDB;
 
 void fsm_automatic(){
-
 	switch (statusLED) {
 			case RED_GREEN:
 				if(IsButtonPress(2) == 1){

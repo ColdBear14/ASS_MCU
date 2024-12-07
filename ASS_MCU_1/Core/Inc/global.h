@@ -27,7 +27,7 @@
 #define MAN_GREEN_RED 23
 #define MAN_YELLOW_RED 24
 
-int statusLED;
+extern int statusLED;
 extern int status_mode;
 
 #endif /* INC_GLOBAL_H_ */
