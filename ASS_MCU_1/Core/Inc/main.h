@@ -43,6 +43,7 @@ extern "C" {
 #include "scheduler.h"
 #include "fsm_lcd.h"
 #include "fsm_manual.h"
+#include "timer.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

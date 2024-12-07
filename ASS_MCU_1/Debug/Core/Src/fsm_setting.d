@@ -29,7 +29,7 @@ Core/Src/fsm_setting.o: ../Core/Src/fsm_setting.c \
  ../Core/Inc/i2c_lcd.h ../Core/Inc/button.h ../Core/Inc/control_traffic.h \
  ../Core/Inc/global.h ../Core/Inc/fsm_automatic.h \
  ../Core/Inc/fsm_setting.h ../Core/Inc/scheduler.h ../Core/Inc/fsm_lcd.h \
- ../Core/Inc/fsm_manual.h
+ ../Core/Inc/fsm_manual.h ../Core/Inc/timer.h
 
 ../Core/Inc/fsm_setting.h:
 
@@ -104,3 +104,5 @@ Core/Src/fsm_setting.o: ../Core/Src/fsm_setting.c \
 ../Core/Inc/fsm_lcd.h:
 
 ../Core/Inc/fsm_manual.h:
+
+../Core/Inc/timer.h:

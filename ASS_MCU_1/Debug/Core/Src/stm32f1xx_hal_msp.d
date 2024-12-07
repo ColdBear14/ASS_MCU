@@ -28,7 +28,8 @@ Core/Src/stm32f1xx_hal_msp.o: ../Core/Src/stm32f1xx_hal_msp.c \
  ../Core/Inc/i2c_lcd.h ../Core/Inc/button.h ../Core/Inc/main.h \
  ../Core/Inc/control_traffic.h ../Core/Inc/global.h \
  ../Core/Inc/fsm_automatic.h ../Core/Inc/fsm_setting.h \
- ../Core/Inc/scheduler.h ../Core/Inc/fsm_lcd.h ../Core/Inc/fsm_manual.h
+ ../Core/Inc/scheduler.h ../Core/Inc/fsm_lcd.h ../Core/Inc/fsm_manual.h \
+ ../Core/Inc/timer.h
 
 ../Core/Inc/main.h:
 
@@ -103,3 +104,5 @@ Core/Src/stm32f1xx_hal_msp.o: ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Inc/fsm_lcd.h:
 
 ../Core/Inc/fsm_manual.h:
+
+../Core/Inc/timer.h:

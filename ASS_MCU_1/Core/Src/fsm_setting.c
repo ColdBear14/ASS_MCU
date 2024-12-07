@@ -21,10 +21,9 @@ void fsm_mode(){
 	switch(status_mode){
 	case INIT:
 		status_mode = MODE1;
-		statusLED = RED_GREEN;
 		countDownA=count_RED;
 		countDownB=count_GREEN;
-
+		statusLED = RED_GREEN;
 		countDownLEDA=count_RED;
 		countDownLEDB=count_GREEN;
 		break;
@@ -51,7 +50,6 @@ void fsm_mode(){
 			count_RED += countTemp;
 			countTemp=0;
 		}
-		displayTraffic();
 		break;
 	case MODE3:
 		statusLED = MODE3;
@@ -71,7 +69,6 @@ void fsm_mode(){
 			count_YELLOW += countTemp;
 			countTemp=0;
 		}
-		displayTraffic();
 		break;
 	case MODE4:
 		statusLED = MODE4;
@@ -91,7 +88,6 @@ void fsm_mode(){
 			count_GREEN += countTemp;
 			countTemp=0;
 		}
-		displayTraffic();
 		break;
 	default:
 		break;

@@ -1,4 +1,4 @@
-Core/Src/fsm_manual.o: ../Core/Src/fsm_manual.c ../Core/Inc/fsm_manual.h \
+Core/Src/timer.o: ../Core/Src/timer.c ../Core/Inc/timer.h \
  ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -30,7 +30,7 @@ Core/Src/fsm_manual.o: ../Core/Src/fsm_manual.c ../Core/Inc/fsm_manual.h \
  ../Core/Inc/fsm_setting.h ../Core/Inc/scheduler.h ../Core/Inc/fsm_lcd.h \
  ../Core/Inc/fsm_manual.h ../Core/Inc/timer.h
 
-../Core/Inc/fsm_manual.h:
+../Core/Inc/timer.h:
 
 ../Core/Inc/main.h:
 

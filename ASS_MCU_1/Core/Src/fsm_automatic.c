@@ -21,8 +21,8 @@ void fsm_automatic(){
 					countDownLEDB = count_YELLOW;
 				}
 				displayTraffic();
-				countDownLEDA--;
-				countDownLEDB--;
+					countDownLEDA--;
+					countDownLEDB--;
 				break;
 			case RED_YELLOW:
 				if(IsButtonPress(2) == 1){
@@ -34,8 +34,9 @@ void fsm_automatic(){
 					countDownLEDB = count_RED;
 				}
 				displayTraffic();
-				countDownLEDA--;
-				countDownLEDB--;
+					countDownLEDA--;
+					countDownLEDB--;
+
 				break;
 			case GREEN_RED:
 				if(IsButtonPress(2) == 1){
@@ -46,8 +47,9 @@ void fsm_automatic(){
 					countDownLEDA = count_YELLOW;
 				}
 				displayTraffic();
-				countDownLEDA--;
-				countDownLEDB--;
+					countDownLEDA--;
+					countDownLEDB--;
+
 				break;
 			case YELLOW_RED:
 				if(IsButtonPress(2) == 1){
@@ -59,8 +61,8 @@ void fsm_automatic(){
 					countDownLEDB = count_GREEN;
 				}
 				displayTraffic();
-				countDownLEDA--;
-				countDownLEDB--;
+					countDownLEDA--;
+					countDownLEDB--;
 				break;
 	default:
 		break;

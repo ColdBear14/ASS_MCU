@@ -7,5 +7,5 @@
 
 #include "global.h"
 
-int statusLED = 0;
+int statusLED;
 int status_mode = INIT;
